@@ -9,10 +9,10 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeavFeedback = (key) => {
+  onLeavFeedback = (option) => {
     this.setState(prevState => {
       return {
-        [key]: prevState[key] + 1,
+        [option]: prevState[option] + 1,
       };
     });
   };
@@ -41,17 +41,8 @@ export class App extends Component {
 
  
       return (
-        <div
-          // style={{
-          //   height: '100vh',
-          //   display: 'flex',
-          //   justifyContent: 'center',
-          //   alignItems: 'center',
-          //   fontSize: 40,
-          //   color: '#010101',
-          // }}
-        >
-          <Feedbackoptions onFeedback={this.onLeavFeedback} />
+        <div>
+          <Feedbackoptions  options={Object.keys(this.state)} onFeedback={this.onLeavFeedback} />
           <Statistics
             good={good}
             neutral={neutral}
